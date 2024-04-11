@@ -3,6 +3,9 @@ package com.captian.reactor.section_one;
 import com.captian.reactor.util.Util;
 import reactor.core.publisher.Mono;
 
+import java.util.concurrent.Callable;
+import java.util.function.Supplier;
+
 public class Lec05MonoFromSupplier {
 
     public static void main(String[] args) {
@@ -10,10 +13,18 @@ public class Lec05MonoFromSupplier {
         // use just only when you have data already
         // Mono<String> mono = Mono.just(getName());
 
-        Mono<String> mono = Mono.fromSupplier(() -> getName());
+        Supplier<String> stringSupplier = () -> getName();
+
+        Mono<String> mono = Mono.fromSupplier(stringSupplier);
         mono.subscribe(
                 Util.onNext()
         );
+
+        Callable<String> stringCallable = () -> getName();
+        Mono.fromCallable(stringCallable)
+                .subscribe(
+                        Util.onNext()
+                );
     }
 
     public static String getName() {
