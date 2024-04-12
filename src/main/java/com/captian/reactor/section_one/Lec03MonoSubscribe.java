@@ -3,8 +3,6 @@ package com.captian.reactor.section_one;
 import com.captian.reactor.util.Util;
 import reactor.core.publisher.Mono;
 
-import java.util.Arrays;
-
 public class Lec03MonoSubscribe {
 
     public static void main(String[] args) {
