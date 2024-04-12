@@ -7,10 +7,10 @@ public class Lec05FluxRange {
 
     public static void main(String[] args) {
 
-        Flux.range(3, 10)
-                .log()
+        Flux.range(1, 10)
+//                .log()
                 .map(i -> Util.faker().name().fullName())
-                .log()
+//                .log()
                 .subscribe(
                         Util.onNext()
                 );
